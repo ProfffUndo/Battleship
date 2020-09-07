@@ -17,10 +17,10 @@ abstract public class Field {
     }
 
     public void setMiss(int x, int y){
-        field[x][y].setCode(3);
+        field[x][y].setCell(3);
     }
     public void setHit(int x,int y){
-        field[x][y].setCode(2);
+        field[x][y].setCell(2);
     }
 
     public void printField(){
@@ -35,5 +35,6 @@ abstract public class Field {
         for (int i=1; i<=10; i++){
             System.out.print(i+"\t");
         }
+        System.out.println();
     }
 }

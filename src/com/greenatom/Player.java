@@ -1,10 +1,12 @@
 package com.greenatom;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Player implements Shooter, Shipper {
-    PlayerField playerField;
-    EnemyField enemyField;
-    String name;
-    int score;
+    private PlayerField playerField;
+    private EnemyField enemyField;
+    private String name;
+    private int score;
 
     Player(String name){
         playerField = new PlayerField();
@@ -13,24 +15,46 @@ public class Player implements Shooter, Shipper {
         score=0;
     }
 
-    public void makeShot(PlayerField enemy, int x, int y){
-        if (enemyField.setShot(enemy,x,y)) score++;
+    public boolean makeShot(PlayerField enemy, int x, int y){
+        if (enemyField.setShot(enemy,x,y)){
+            score++;
+            return true;
+        }
+        else return false;
     }
 
     public void setShip(Ship ship){
         playerField.setShip(ship);
     }
 
+
     public void enemyShot(int x,int y){
         playerField.setEnemyShot(x,y);
     }
 
-    public void printPlayer(){
-
+    public void printFields(){
+        System.out.println("Your Field");
+        playerField.printField();
+        System.out.println("Enemy Field");
+        enemyField.printField();
+    }
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public PlayerField getPlayerField() {
+        return playerField;
+    }
 
+    public EnemyField getEnemyField() {
+        return enemyField;
+    }
 
-
+    public int getScore() {
+        return score;
+    }
 }

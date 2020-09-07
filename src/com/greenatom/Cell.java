@@ -26,12 +26,26 @@ public class Cell {
     }
 
 
-    public char getCode() {
-        return image;
+    public int getCode() {
+        return code;
     }
 
     public void setCode(int code) {
         this.code = code;
+    }
+
+    public void setCell(int newcode){
+         setCode(newcode);
+        switch (newcode){
+            case 0: setImage('□');
+                break;
+            case 1: setImage('■');
+                break;
+            case 2: setImage('✖');
+                break;
+            case 3: setImage('*');
+                break;
+        }
     }
 
     private void setImage(char image) {
